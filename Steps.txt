@@ -1,0 +1,6 @@
+rm -R CarND-Extended-Kalman-Filter-Project-master
+git clone https://github.com/MagicSHX/CarND-Extended-Kalman-Filter-Project-master.git
+cd CarND-Extended-Kalman-Filter-Project-master
+mkdir build && cd build
+cmake .. && make
+./ExtendedKF
