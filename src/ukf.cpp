@@ -238,16 +238,16 @@ void UKF::Prediction(double delta_t)
   // (prediction step)
 
   //predict sigma points
-  for (int i = 0; i< 2*n_aug+1; i++)
+  for (int i = 0; i< 2*n_aug_+1; i++)
   {
     //extract values for better readability
-    double p_x = Xsig_aug(0,i);
-    double p_y = Xsig_aug(1,i);
-    double v = Xsig_aug(2,i);
-    double yaw = Xsig_aug(3,i);
-    double yawd = Xsig_aug(4,i);
-    double nu_a = Xsig_aug(5,i);
-    double nu_yawdd = Xsig_aug(6,i);
+    double p_x = Xsig_aug_(0,i);
+    double p_y = Xsig_aug_(1,i);
+    double v = Xsig_aug_(2,i);
+    double yaw = Xsig_aug_(3,i);
+    double yawd = Xsig_aug_(4,i);
+    double nu_a = Xsig_aug_(5,i);
+    double nu_yawdd = Xsig_aug_(6,i);
 
     //predicted state values
     double px_p, py_p;
@@ -275,11 +275,11 @@ void UKF::Prediction(double delta_t)
     yawd_p = yawd_p + nu_yawdd*delta_t;
 
     //write predicted sigma point into right column
-    Xsig_pred(0,i) = px_p;
-    Xsig_pred(1,i) = py_p;
-    Xsig_pred(2,i) = v_p;
-    Xsig_pred(3,i) = yaw_p;
-    Xsig_pred(4,i) = yawd_p;
+    Xsig_pred_(0,i) = px_p;
+    Xsig_pred_(1,i) = py_p;
+    Xsig_pred_(2,i) = v_p;
+    Xsig_pred_(3,i) = yaw_p;
+    Xsig_pred_(4,i) = yawd_p;
   }
   
   //predict state mean
